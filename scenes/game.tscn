@@ -1,0 +1,60 @@
+[gd_scene load_steps=15 format=3 uid="uid://ep2ntwltxl4g"]
+
+[ext_resource type="PackedScene" uid="uid://dmbdph5cmtxye" path="res://scenes/player.tscn" id="1_dlbid"]
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_n7hta"]
+[ext_resource type="Texture2D" uid="uid://bvcdtlye15jcm" path="res://textures/backgrounds/business/1.png" id="2_apgun"]
+[ext_resource type="Material" uid="uid://cuyn4gqeak0wh" path="res://materials/scrolling_1.tres" id="3_eytvd"]
+[ext_resource type="Texture2D" uid="uid://b3jfl7k5gxoud" path="res://textures/backgrounds/business/2.png" id="3_ougce"]
+[ext_resource type="Texture2D" uid="uid://bjop7r54htx6x" path="res://textures/backgrounds/business/3.png" id="4_6bgll"]
+[ext_resource type="Material" uid="uid://betitvxqrxxtf" path="res://materials/scrolling_2.tres" id="5_nval2"]
+[ext_resource type="Texture2D" uid="uid://bqmyp0ewts3m0" path="res://textures/backgrounds/business/4.png" id="5_qtw7d"]
+[ext_resource type="Texture2D" uid="uid://byx2wcb1fl4tx" path="res://textures/backgrounds/business/5.png" id="6_m5gjj"]
+[ext_resource type="Material" uid="uid://b0crrnnjkylbr" path="res://materials/scrolling_3.tres" id="7_o64ha"]
+[ext_resource type="PackedScene" uid="uid://bq5n344e6oup3" path="res://scenes/obstructions/billboard.tscn" id="7_ym5ro"]
+[ext_resource type="Material" uid="uid://dmcteq106de8n" path="res://materials/scrolling_4.tres" id="9_l6cvf"]
+[ext_resource type="Material" uid="uid://yy2oehn2fgrp" path="res://materials/scrolling_5.tres" id="11_k5jia"]
+
+[sub_resource type="Environment" id="Environment_hcosd"]
+background_mode = 3
+glow_enabled = true
+glow_blend_mode = 1
+glow_hdr_threshold = 0.1
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_n7hta")
+obstruction_scenes = Array[PackedScene]([ExtResource("7_ym5ro")])
+
+[node name="Background" type="Node2D" parent="."]
+texture_repeat = 2
+scale = Vector2(2, 2)
+metadata/_edit_group_ = true
+
+[node name="1" type="Sprite2D" parent="Background"]
+material = ExtResource("3_eytvd")
+texture = ExtResource("2_apgun")
+
+[node name="2" type="Sprite2D" parent="Background"]
+material = ExtResource("5_nval2")
+texture = ExtResource("3_ougce")
+
+[node name="3" type="Sprite2D" parent="Background"]
+material = ExtResource("7_o64ha")
+texture = ExtResource("4_6bgll")
+
+[node name="4" type="Sprite2D" parent="Background"]
+material = ExtResource("9_l6cvf")
+texture = ExtResource("5_qtw7d")
+
+[node name="5" type="Sprite2D" parent="Background"]
+material = ExtResource("11_k5jia")
+texture = ExtResource("6_m5gjj")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+
+[node name="Player" parent="." instance=ExtResource("1_dlbid")]
+position = Vector2(-221, 0)
+metadata/_edit_group_ = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_hcosd")

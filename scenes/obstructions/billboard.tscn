@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://bq5n344e6oup3"]
+
+[ext_resource type="Texture2D" uid="uid://c2o40uv501o6s" path="res://textures/ads/92x60_2.png" id="1_ub7lu"]
+[ext_resource type="Texture2D" uid="uid://b2um3tjakeerg" path="res://textures/ads/screens/1.png" id="2_p1mph"]
+[ext_resource type="Script" path="res://scripts/flipbook.gd" id="3_lrewy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n6xgm"]
+size = Vector2(102, 98)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_d3ynb"]
+polygon = PackedVector2Array(-50, -45, -44, -45, -41, -52, -30, -52, -27, -45, -10, -45, -6, -52, 5, -52, 8.3125, -45, 27, -45, 30, -52, 41, -52, 43.875, -45, 50, -45, 50, 33, 42, 33, 42, 51, 22, 51, 22, 33, -22, 33, -22, 51, -42, 51, -42, 33, -50, 33)
+
+[node name="Billboard" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_n6xgm")
+
+[node name="92x602" type="Sprite2D" parent="."]
+texture = ExtResource("1_ub7lu")
+
+[node name="2" type="Sprite2D" parent="92x602"]
+position = Vector2(0, -10)
+texture = ExtResource("2_p1mph")
+hframes = 35
+script = ExtResource("3_lrewy")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_d3ynb")

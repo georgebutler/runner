@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dmcteq106de8n"]
+
+[ext_resource type="Shader" path="res://materials/scrolling.gdshader" id="1_mjmri"]
+
+[resource]
+shader = ExtResource("1_mjmri")
+shader_parameter/motion = Vector2(0, 0)

@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://ddk4kmi1jkiyk"]
+
+[ext_resource type="Script" path="res://scripts/thruster.gd" id="1_mm24m"]
+[ext_resource type="Texture2D" uid="uid://b145bf53uogdp" path="res://textures/cars/effects/1.png" id="3_ke0wf"]
+[ext_resource type="Script" path="res://scripts/flipbook.gd" id="4_28iwg"]
+[ext_resource type="Texture2D" uid="uid://bjmwhpgkkad7w" path="res://textures/gradient_radial.tres" id="5_hy44l"]
+[ext_resource type="Texture2D" uid="uid://5pdf1idpmwce" path="res://textures/cars/chassis/1.png" id="5_q8c3c"]
+
+[node name="Thruster" type="Node2D"]
+script = ExtResource("1_mm24m")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("5_q8c3c")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(0, 17)
+texture = ExtResource("3_ke0wf")
+hframes = 4
+script = ExtResource("4_28iwg")
+
+[node name="PointLight2D" type="PointLight2D" parent="Sprite2D"]
+position = Vector2(0, 12)
+texture = ExtResource("5_hy44l")
+
+[connection signal="frame_changed" from="Sprite2D/Sprite2D" to="." method="_on_sprite_2d_frame_changed"]

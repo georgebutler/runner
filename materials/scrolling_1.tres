@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cuyn4gqeak0wh"]
+
+[ext_resource type="Shader" path="res://materials/scrolling.gdshader" id="1_huoi5"]
+
+[resource]
+shader = ExtResource("1_huoi5")
+shader_parameter/motion = Vector2(0, 0)
+shader_parameter/time = null
